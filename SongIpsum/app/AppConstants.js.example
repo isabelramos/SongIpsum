@@ -1,0 +1,3 @@
+﻿app.constant("MUSIXMATCH_CONFIG", {
+    apiKey: ""
+});

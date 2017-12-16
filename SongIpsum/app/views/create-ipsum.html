@@ -1,4 +1,33 @@
 ﻿<div id="ipsum-container">
+    <!--<table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Artist</th>
+                <th>Decade</th>
+                <th>Genre</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr id="lyric-info" ng-repeat="lyric in lyricinfo">
+                <td>{{lyric.Artist}}</td>
+                <td>{{lyric.Decade}}</td>
+                <td>{{lyric.Genre}}</td>
+            </tr>
+        </tbody>
+    </table>-->
+
+    <!--<div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Select Decade
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" ng-model="selectedDecade" ng-options="x.decade for x in decadeInfo">
+        </div>
+    </div>-->
+
+    <select id="decade-dropdown" type="number" ng-model="selectedDecade" ng-change="getAllDecades(selectedDecade)" ng-options="x.Decade for x in lyricInfo">
+    </select>
+
     <table class="table table-striped">
         <thead>
             <tr>
@@ -9,10 +38,10 @@
         </thead>
 
         <tbody>
-            <tr id="lyric-info" ng-repeat="lyric in lyricInfo">
-                <td>{{lyric.Artist}}</td>
-                <td>{{lyric.Decade}}</td>
-                <td>{{lyric.Genre}}</td>
+            <tr id="decade-info" ng-model="selectedDecade">
+                <td>{{selectedDecade.Artist}}</td>
+                <td>{{selectedDecade.Decade}}</td>
+                <td>{{selectedDecade.Genre}}</td>
             </tr>
         </tbody>
     </table>

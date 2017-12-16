@@ -41,5 +41,25 @@ namespace SongIpsum.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, decades);
         }
 
+        [HttpGet, Route("genre/{Genre}")]
+        public HttpResponseMessage GetGenre(string Genre)
+        {
+            var db = new ApplicationDbContext();
+
+            var genres = db.Lyric.Where(genre => genre.Genre == Genre);
+
+            return Request.CreateResponse(HttpStatusCode.OK, genres);
+        }
+
+        [HttpGet, Route("artist/{Artist}")]
+        public HttpResponseMessage GetArtist(string Artist)
+        {
+            var db = new ApplicationDbContext();
+
+            var artists = db.Lyric.Where(artist => artist.Artist == Artist);
+
+            return Request.CreateResponse(HttpStatusCode.OK, artists);
+        }
+
     }
 }

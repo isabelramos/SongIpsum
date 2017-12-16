@@ -2,6 +2,7 @@
     $scope.lyricInfo = [];
     $scope.decadeInfo = [];
     $scope.selectedDecadeInfo = [];
+    $scope.artistSearchInput = "";
 
     let getLyrics = () => {
         $http.get("/api/lyric")

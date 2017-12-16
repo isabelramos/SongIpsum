@@ -262,3 +262,5 @@ __pycache__/
 
 # AppConstants file
 SongIpsum/app/AppConstants.js
+
+SongIpsum/ApiConstants.cs

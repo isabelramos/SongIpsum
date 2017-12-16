@@ -3,8 +3,9 @@
     $scope.decadeInfo = [];
     $scope.selectedDecadeInfo = [];
     $scope.artistSearchInput = "";
+    $scope.availableDecades = [1990, 1980, 1970];
 
-    let getLyrics = () => {
+    $scope.getLyrics = () => {
         $http.get("/api/lyric")
             .then((result) => {
                 $scope.lyricInfo = result.data;
@@ -13,23 +14,13 @@
             });
     };
 
-    getLyrics();
+    $scope.getLyrics();
 
-    //let getAllDecades = () => {
-    //    $http.get("/api/lyric")
-    //        .then((result) => {
-    //            $scope.decadeInfo = result.data;
-    //        }).catch((error) => {
-    //            console.log("getAllDecades error", error);
-    //        });
-    //};
-
-    //getAllDecades();
-
-    let getSelectedDecade = (selectedDecade) => {
-        $http.get("/api/lyric/decade/{selectedDecade}")
+    $scope.getSelectedDecade = () => {
+        $http.get("/api/lyric/decade/" + $scope.selectedDecade)
             .then((result) => {
                 $scope.selectedDecadeInfo = result.data;
+                console.log($scope.selectedDecadeInfo);
             }).catch((error) => {
                 console.log("getSelectedDecade error", error);
             });

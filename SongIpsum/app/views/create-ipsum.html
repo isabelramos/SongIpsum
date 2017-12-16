@@ -25,10 +25,10 @@
         </div>
     </div>-->
 
-    <select id="decade-dropdown" type="number" ng-model="selectedDecade" ng-change="getAllDecades(selectedDecade)" ng-options="x.Decade for x in lyricInfo">
+    <select id="decade-dropdown" type="number" ng-model="selectedDecade" ng-change="getSelectedDecade()" ng-options="x for x in availableDecades">
     </select>
 
-    <input class="form-control" type="text" placeholder="Search Artist" ng-model="artistSearchInput()">
+    <input class="form-control" type="text" placeholder="Search Artist" ng-model="artistSearchInput">
     <a class="btn" ng-click="searchArtistButton()">SEARCH</a>
 
     <table class="table table-striped">

@@ -242,11 +242,16 @@
     <Compile Include="Migrations\201712130035364_AttemptAddLyricTable.Designer.cs">
       <DependentUpon>201712130035364_AttemptAddLyricTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712161642030_AddingTrackTable.cs" />
+    <Compile Include="Migrations\201712161642030_AddingTrackTable.Designer.cs">
+      <DependentUpon>201712161642030_AddingTrackTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\Lyric.cs" />
+    <Compile Include="Models\Artist.cs" />
+    <Compile Include="Models\Track.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
     <Compile Include="Results\ChallengeResult.cs" />
@@ -344,6 +349,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712130035364_AttemptAddLyricTable.resx">
       <DependentUpon>201712130035364_AttemptAddLyricTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712161642030_AddingTrackTable.resx">
+      <DependentUpon>201712161642030_AddingTrackTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

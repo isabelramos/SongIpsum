@@ -26,7 +26,8 @@ namespace SongIpsum.Models
         {
         }
 
-        public System.Data.Entity.DbSet<SongIpsum.Models.Lyric> Lyric { get; set; }
+        public System.Data.Entity.DbSet<SongIpsum.Models.Artist> Artist { get; set; }
+        public System.Data.Entity.DbSet<SongIpsum.Models.Track> Track { get; set; }
 
         public static ApplicationDbContext Create()
         {

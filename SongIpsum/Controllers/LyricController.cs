@@ -16,7 +16,7 @@ namespace SongIpsum.Controllers
         {
             var db = new ApplicationDbContext();
 
-            var lyrics = db.Lyric;
+            var lyrics = db.Artist;
 
             return Request.CreateResponse(HttpStatusCode.OK, lyrics);
         }
@@ -36,7 +36,7 @@ namespace SongIpsum.Controllers
         {
             var db = new ApplicationDbContext();
 
-            var decades = db.Lyric.Where(decade => decade.Decade == Decade);
+            var decades = db.Artist.Where(decade => decade.Decade == Decade);
 
             return Request.CreateResponse(HttpStatusCode.OK, decades);
         }
@@ -46,20 +46,20 @@ namespace SongIpsum.Controllers
         {
             var db = new ApplicationDbContext();
 
-            var genres = db.Lyric.Where(genre => genre.Genre == Genre);
+            var genres = db.Artist.Where(genre => genre.Genre == Genre);
 
             return Request.CreateResponse(HttpStatusCode.OK, genres);
         }
 
-        [HttpGet, Route("artist/{Artist}")]
-        public HttpResponseMessage GetArtist(string Artist)
-        {
-            var db = new ApplicationDbContext();
+        //[HttpGet, Route("artist/{Artist}")]
+        //public HttpResponseMessage GetArtist(string Artist)
+        //{
+        //    var db = new ApplicationDbContext();
 
-            var artists = db.Lyric.Where(artist => artist.Artist == Artist);
+        //    var artists = db.Artist.Where(artist => artist.Artist == Artist);
 
-            return Request.CreateResponse(HttpStatusCode.OK, artists);
-        }
+        //    return Request.CreateResponse(HttpStatusCode.OK, artists);
+        //}
 
     }
 }

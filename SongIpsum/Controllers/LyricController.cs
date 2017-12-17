@@ -12,26 +12,6 @@ namespace SongIpsum.Controllers
     [RoutePrefix("api/lyric")]
     public class LyricController : ApiController
     {
-        [HttpGet, Route("")]
-        public HttpResponseMessage GetLyrics()
-        {
-            var db = new ApplicationDbContext();
-
-            var lyrics = db.Artist;
-
-            return Request.CreateResponse(HttpStatusCode.OK, lyrics);
-        }
-
-        //[HttpGet, Route("api/lyric/decade")]
-        //public HttpResponseMessage GetAllDecades()
-        //{
-        //    var db = new ApplicationDbContext();
-
-        //    var allDecades = db.Lyric;
-
-        //    return Request.CreateResponse(HttpStatusCode.OK, allDecades);
-        //}
-
         [HttpGet, Route("decade/{Decade}")]
         public HttpResponseMessage GetDecade(int Decade)
         {
@@ -49,12 +29,20 @@ namespace SongIpsum.Controllers
                 randomTracksFromSelectedDecadeArtist.Add(randomTrack);
             }
 
-            GetLyricsFromMusixmatch(randomTracksFromSelectedDecadeArtist);
+            List<string> listOfLyrics = GetLyricsFromMusixmatch(randomTracksFromSelectedDecadeArtist);
 
             return Request.CreateResponse(HttpStatusCode.OK, randomTracksFromSelectedDecadeArtist);
         }
 
-        private void GetLyricsFromMusixmatch(List<Track> randomTracksFromSelectedDecadeArtist)
+        [HttpGet, Route("decade/ipsum")]
+        private IHttpActionResult CreateIpsum([FromBody]List<string> listOfLyrics)
+        {
+            var ipsum = CreateIpsum(listOfLyrics);
+            var ipsumSplit = ipsum.ToString().Split(new[] { Environment.NewLine }, StringSplitOptions.None);
+            return Ok();
+        }
+
+        private List<string> GetLyricsFromMusixmatch(List<Track> randomTracksFromSelectedDecadeArtist)
         {
             var client = new RestClient("http://api.musixmatch.com/ws/1.1/matcher.lyrics.get");
 
@@ -65,6 +53,8 @@ namespace SongIpsum.Controllers
             client.ClearHandlers();
             client.AddHandler("*", new RestSharp.Deserializers.JsonDeserializer());
 
+            var allSelectedLyrics = new List<string>();
+
             foreach (var track in randomTracksFromSelectedDecadeArtist)
             {
                 request.AddParameter("q_track", track.TrackName);
@@ -72,9 +62,13 @@ namespace SongIpsum.Controllers
                 
                 var response = client.Execute<MusixmatchResponse.RootObject>(request);
                 var lyric = response.Data.message.body.lyrics.lyrics_body;
-            }
-        }
 
+                allSelectedLyrics.Add(lyric);
+            }
+
+            return allSelectedLyrics;
+        }
+          
         [HttpGet, Route("genre/{Genre}")]
         public HttpResponseMessage GetGenre(string Genre)
         {

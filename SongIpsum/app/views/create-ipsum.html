@@ -31,21 +31,6 @@
     <input class="form-control" type="text" placeholder="Search Artist" ng-model="artistSearchInput">
     <a class="btn" ng-click="searchArtistButton()">SEARCH</a>
 
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>Artist</th>
-                <th>Decade</th>
-                <th>Genre</th>
-            </tr>
-        </thead>
+    <div ng-value="getDecadeIpsum"></div>
 
-        <tbody>
-            <tr id="decade-info" ng-model="selectedDecade">
-                <td>{{selectedDecade.Artist}}</td>
-                <td>{{selectedDecade.Decade}}</td>
-                <td>{{selectedDecade.Genre}}</td>
-            </tr>
-        </tbody>
-    </table>
 </div>

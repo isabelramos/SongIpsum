@@ -83,22 +83,30 @@ namespace SongIpsum.Controllers
         [HttpGet, Route("genre/{Genre}")]
         public HttpResponseMessage GetGenre(string Genre)
         {
-            var db = new ApplicationDbContext();
+            if (Db == null)
+            {
+                Db = new ApplicationDbContext();
+            }
 
-            var genres = db.Artist.Where(genre => genre.Genre == Genre);
+            var listOfArtists = Db.Artist.Where(genre => genre.Genre == Genre).RandomSubset(5);
 
-            return Request.CreateResponse(HttpStatusCode.OK, genres);
+            var criteria = GetLyricsFromAnyUserCriteria(listOfArtists);
+            return Request.CreateResponse(HttpStatusCode.OK, criteria);
         }
 
-        //[HttpGet, Route("artist/{Artist}")]
-        //public HttpResponseMessage GetArtist(string Artist)
-        //{
-        //    var db = new ApplicationDbContext();
+        [HttpGet, Route("artist/{Artist}")]
+        public HttpResponseMessage GetArtist(string Artist)
+        {
+            if (Db == null)
+            {
+                Db = new ApplicationDbContext();
+            }
 
-        //    var artists = db.Artist.Where(artist => artist.Artist == Artist);
+            var listOfArtists = Db.Artist.Where(artist => artist.ArtistName == Artist).RandomSubset(1);
 
-        //    return Request.CreateResponse(HttpStatusCode.OK, artists);
-        //}
+            var criteria = GetLyricsFromAnyUserCriteria(listOfArtists);
+            return Request.CreateResponse(HttpStatusCode.OK, criteria);
+        }
 
     }
 }

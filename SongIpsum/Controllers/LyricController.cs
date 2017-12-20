@@ -102,11 +102,22 @@ namespace SongIpsum.Controllers
                 Db = new ApplicationDbContext();
             }
 
-            var listOfArtists = Db.Artist.Where(artist => artist.ArtistName == Artist).RandomSubset(1);
+            var searchedArtist = Db.Artist.Where(artist => artist.ArtistName == Artist);
 
-            var criteria = GetLyricsFromAnyUserCriteria(listOfArtists);
-            return Request.CreateResponse(HttpStatusCode.OK, criteria);
-        }
+			var randomTracksFromSelectedArtist = new List<Track>();
+
+			var randomTrack = Db.Track.Where(track => track.Artist.ArtistName == Artist).RandomSubset(5);
+
+			randomTracksFromSelectedArtist.AddRange(randomTrack);
+
+			List<string> listOfLyrics = GetLyricsFromMusixmatch(randomTracksFromSelectedArtist);
+
+			var ipsumSplit = listOfLyrics.SelectMany(x => x.Split(new[] { "\r\n", "\r", "\n", "******* This Lyrics is NOT for Commercial use *******", "\n(1409616768196)", "(1409616768196)" }, StringSplitOptions.RemoveEmptyEntries));
+
+			var ipsum = string.Join(" ", ipsumSplit.RandomSubset(25));
+
+			return Request.CreateResponse(HttpStatusCode.OK, ipsum);
+		}
 
     }
 }

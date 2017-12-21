@@ -50,6 +50,8 @@ namespace SongIpsum.Controllers
 
             var ipsum = string.Join(" ", ipsumSplit.RandomSubset(25));
 
+			//var paragraphs = ipsum.Insert(5, "." + new[] { System.Environment.NewLine });
+
             return ipsum;
         }
 

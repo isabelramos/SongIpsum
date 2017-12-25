@@ -1,15 +1,26 @@
 ﻿<div id="ipsum-container">
 
-    <select id="decade-dropdown" type="number" ng-model="selectedDecade" ng-options="x for x in availableDecades"></select>
-    <a class="btn" ng-click="searchDecadeButton()">CREATE IPSUM</a>
+    <h3>Create Ipsum by</h3>
+    <a ng-click="openDecadeSelector()">Decade</a>
+    <a ng-click="openGenreSelector()">Genre</a>
+    <a ng-click="openArtistSelector()">Artist</a>
 
-    <select id="genre-dropdown" type="number" ng-model="selectedGenre" ng-options="y for y in availableGenres"></select>
-    <a class="btn" ng-click="searchGenreButton()">CREATE IPSUM</a>
+    <div class="decade-selector" ng-show="decadeSelectorClicked">
+        <select id="decade-dropdown" type="number" ng-model="selectedDecade" ng-options="x for x in availableDecades"></select>
+        <a class="btn" ng-click="searchDecadeButton()">CREATE IPSUM</a>
+    </div>
 
-    <input class="form-control" type="text" placeholder="Search Artist" ng-model="artistSearchInput">
-    <a class="btn" ng-click="searchArtistButton()">CREATE IPSUM</a>
+    <div class="genre-selector" ng-show="genreSelectorClicked">
+        <select id="genre-dropdown" type="number" ng-model="selectedGenre" ng-options="y for y in availableGenres"></select>
+        <a class="btn" ng-click="searchGenreButton()">CREATE IPSUM</a>
+    </div>
 
-    <div class="ipsum-container">
+    <div class="artist-selector" ng-show="artistSelectorClicked">
+        <input class="form-control" type="text" placeholder="Search Artist" ng-model="artistSearchInput">
+        <a class="btn" ng-click="searchArtistButton()">CREATE IPSUM</a>
+    </div>
+
+    <div class="created-ipsum">
         <p ng-show="ipsum.length">{{ipsum}}</p>
     </div>
 

@@ -1,9 +1,29 @@
 ﻿app.controller("createIpsumCtrl", ["$http", "$scope", function ($http, $scope) {
-    $scope.lyricInfo = [];
     $scope.artistSearchInput = "";
     $scope.availableDecades = [1990, 1980, 1970];
     $scope.availableGenres = ["Rock", "Pop", "R&B", "New Wave"];
     $scope.ipsum = [];
+    $scope.decadeSelectorClicked = true;
+    $scope.genreSelectorClicked = false;
+    $scope.artistSelectorClicked = false;
+
+    $scope.openDecadeSelector = () => {
+        $scope.decadeSelectorClicked = true;
+        $scope.genreSelectorClicked = false;
+        $scope.artistSelectorClicked = false;
+    };
+
+    $scope.openGenreSelector = () => {
+        $scope.decadeSelectorClicked = false;
+        $scope.genreSelectorClicked = true;
+        $scope.artistSelectorClicked = false;
+    };
+
+    $scope.openArtistSelector = () => {
+        $scope.decadeSelectorClicked = false;
+        $scope.genreSelectorClicked = false;
+        $scope.artistSelectorClicked = true;
+    };
 
     $scope.searchDecadeButton = () => {
         $scope.getDecadeIpsum();

@@ -5,6 +5,18 @@
     $scope.availableGenres = ["Rock", "Pop", "R&B", "New Wave"];
     $scope.ipsum = [];
 
+    $scope.searchDecadeButton = () => {
+        $scope.getDecadeIpsum();
+    };
+
+    $scope.searchGenreButton = () => {
+        $scope.getGenreIpsum();
+    };
+
+    $scope.searchArtistButton = () => {
+        $scope.getArtistIpsum();
+    };
+
     $scope.getDecadeIpsum = () => {
         $http.get("/api/lyric/decade/" + $scope.selectedDecade)
             .then((result) => {
@@ -21,10 +33,6 @@
             }).catch((error) => {
                 console.log("getGenreIpsum error", error);
             });
-    };
-
-    $scope.searchArtistButton = () => {
-        $scope.getArtistIpsum();
     };
 
     $scope.getArtistIpsum = () => {

@@ -1,37 +1,16 @@
 ﻿<div id="ipsum-container">
-    <!--<table class="table table-striped">
-        <thead>
-            <tr>
-                <th>Artist</th>
-                <th>Decade</th>
-                <th>Genre</th>
-            </tr>
-        </thead>
 
-        <tbody>
-            <tr id="lyric-info" ng-repeat="lyric in lyricinfo">
-                <td>{{lyric.Artist}}</td>
-                <td>{{lyric.Decade}}</td>
-                <td>{{lyric.Genre}}</td>
-            </tr>
-        </tbody>
-    </table>-->
+    <select id="decade-dropdown" type="number" ng-model="selectedDecade" ng-options="x for x in availableDecades"></select>
+    <a class="btn" ng-click="searchDecadeButton()">CREATE IPSUM</a>
 
-    <!--<div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Select Decade
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" ng-model="selectedDecade" ng-options="x.decade for x in decadeInfo">
-        </div>
-    </div>-->
-
-    <select id="decade-dropdown" type="number" ng-change="getDecadeIpsum()" ng-model="selectedDecade" ng-options="x for x in availableDecades"></select>
-
-    <select id="genre-dropdown" type="number" ng-change="getGenreIpsum()" ng-model="selectedGenre" ng-options="y for y in availableGenres"></select>
+    <select id="genre-dropdown" type="number" ng-model="selectedGenre" ng-options="y for y in availableGenres"></select>
+    <a class="btn" ng-click="searchGenreButton()">CREATE IPSUM</a>
 
     <input class="form-control" type="text" placeholder="Search Artist" ng-model="artistSearchInput">
-    <a class="btn" ng-click="searchArtistButton()">SEARCH</a>
+    <a class="btn" ng-click="searchArtistButton()">CREATE IPSUM</a>
 
-    <div ng-if="ipsum">{{ipsum}}</div>
+    <div class="ipsum-container">
+        <p ng-show="ipsum.length">{{ipsum}}</p>
+    </div>
 
 </div>

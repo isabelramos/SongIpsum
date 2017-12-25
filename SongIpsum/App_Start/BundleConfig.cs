@@ -28,11 +28,15 @@ namespace SongIpsum
                       "~/app/AppConstants.js")
                       .IncludeDirectory("~/app/controllers", "*.js"));
 
-
-
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
-        }
+
+			bundles.Add(new StyleBundle("~/stylesheets/css").Include(
+					  "~/stylesheets/bootstrap-square.css"));
+
+			bundles.Add(new StyleBundle("~/styles/css").Include(
+					  "~/styles/main.css"));
+		}
     }
 }

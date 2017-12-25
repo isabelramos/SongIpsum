@@ -1,0 +1,22 @@
+﻿input:focus,
+select:focus,
+textarea:focus,
+a:focus,
+a:active,
+.btn:focus,
+.btn:active,
+.no-border-btn:focus,
+.no-border-btn:active {
+    outline: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+body {
+    /*background-image: url(/images/background.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;*/
+    background-color: #141414;
+    font-family: 'Scope One', serif;
+    color: white;
+}

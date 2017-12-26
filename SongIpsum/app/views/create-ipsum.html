@@ -20,8 +20,9 @@
         <a class="btn" ng-click="searchArtistButton()">CREATE IPSUM</a>
     </div>
 
-    <div class="created-ipsum">
-        <p ng-show="ipsum.length">{{ipsum}}</p>
+    <div class="created-ipsum" ng-show="ipsum.length">
+        <a class="btn" ng-click="copyIpsum()"><i class="fa fa-clipboard" aria-hidden="true"></i></a>
+        <p>{{ipsum}}</p>
     </div>
 
 </div>

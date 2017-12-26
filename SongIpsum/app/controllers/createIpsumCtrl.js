@@ -1,4 +1,4 @@
-﻿app.controller("createIpsumCtrl", ["$http", "$scope", function ($http, $scope) {
+﻿app.controller("createIpsumCtrl", ["$http", "$scope", "ngClipboard", function ($http, $scope, ngClipboard) {
     $scope.artistSearchInput = "";
     $scope.availableDecades = [1990, 1980, 1970];
     $scope.availableGenres = ["Rock", "Pop", "R&B", "New Wave"];
@@ -6,6 +6,10 @@
     $scope.decadeSelectorClicked = true;
     $scope.genreSelectorClicked = false;
     $scope.artistSelectorClicked = false;
+
+    $scope.copyIpsum = () => {
+        ngClipboard.toClipboard($scope.ipsum);
+    };
 
     $scope.openDecadeSelector = () => {
         $scope.decadeSelectorClicked = true;

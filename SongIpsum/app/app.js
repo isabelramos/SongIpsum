@@ -1,1 +1,1 @@
-﻿var app = angular.module("SongIpsum", ["ngRoute"]);
+﻿var app = angular.module("SongIpsum", ["ngRoute", "ngClipboard"]);

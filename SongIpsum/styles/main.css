@@ -20,3 +20,46 @@ body {
     font-family: 'Scope One', serif;
     color: white;
 }
+
+.primary-logo {
+    width: 65%;
+    margin-top: 5%;
+}
+
+.aligner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.center {
+    text-align: center;
+}
+
+h1 {
+    font-family: 'Scope One', serif;
+    letter-spacing: 0.2rem;
+    text-align: center;
+}
+
+h3 {
+    font-family: 'Scope One', serif;
+    letter-spacing: 0.2rem;
+}
+
+.btn {
+     background-color: white;
+}
+
+.large-btn {
+    width: 200px;
+    margin: 10px;
+}
+
+select, .input-field {
+    width: 200px;
+    margin: 10px;
+    padding: 5px;
+}
+
+

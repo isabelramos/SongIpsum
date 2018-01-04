@@ -16,14 +16,29 @@ body {
     /*background-image: url(/images/background.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;*/
-    background-color: #141414;
+    background-color: #363a49;
     font-family: 'Scope One', serif;
-    color: white;
+    color: #eef7fd;
+}
+
+select, .input-field {
+    color: #363a49;
+    width: 200px;
+    margin: 10px;
+    padding: 5px;
+}
+
+.input-field:focus, select:focus, textarea:focus {
+    color: #363a49;
+}
+
+a, a:hover, .btn:hover, .large-btn:hover {
+    color: #eef7fd;
 }
 
 .primary-logo {
     width: 65%;
-    margin-top: 5%;
+    margin-top: 10%;
 }
 
 .aligner {
@@ -42,24 +57,21 @@ h1 {
     text-align: center;
 }
 
-h3 {
+h4 {
     font-family: 'Scope One', serif;
     letter-spacing: 0.2rem;
 }
 
 .btn {
-     background-color: white;
+     background-color: #886a29;
+}
+
+.btn:hover {
+    opacity: 0.8;
 }
 
 .large-btn {
     width: 200px;
     margin: 10px;
 }
-
-select, .input-field {
-    width: 200px;
-    margin: 10px;
-    padding: 5px;
-}
-
 

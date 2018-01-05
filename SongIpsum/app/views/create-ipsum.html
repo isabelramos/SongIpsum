@@ -26,11 +26,12 @@
             <input class="input-field" type="text" placeholder="Search Artist" ng-model="artistSearchInput">
             <a class="btn" ng-click="searchArtistButton()">CREATE IPSUM</a>
         </div>
+    </div>
 
-
-        <div class="created-ipsum" ng-show="ipsum.length">
-            <a class="btn btn-lg" ng-click="copyIpsum()"><i class="fa fa-clipboard" aria-hidden="true"></i></a>
+    <div class="aligner">
+        <div class="created-ipsum aligner-item" ng-show="ipsum.length">
             <p>{{ipsum}}</p>
+            <a class="btn btn-lg" ng-click="copyIpsum()"><i class="fa fa-clipboard" aria-hidden="true"></i>  COPY IPSUM</a>
         </div>
     </div>
 

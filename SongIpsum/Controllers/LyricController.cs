@@ -48,12 +48,26 @@ namespace SongIpsum.Controllers
 
             var ipsumSplit = listOfLyrics.SelectMany(x => x.Split(new[] { "\r\n", "\r", "\n", "******* This Lyrics is NOT for Commercial use *******", "\n(1409616768196)", "(1409616768196)" }, StringSplitOptions.RemoveEmptyEntries));
 
-            var ipsum = string.Join(" ", ipsumSplit.RandomSubset(25));
+            //var ipsum = string.Join(" ", ipsumSplit.RandomSubset(25));
 
-			//var paragraphs = ipsum.Insert(5, "." + new[] { System.Environment.NewLine });
+			var randomLines = ipsumSplit.RandomSubset(25);
 
-            return ipsum;
-        }
+			//var paragraphs = ipsum.Insert(5, "\r\n");
+
+			var allParagraphs = new List<string>();
+
+			foreach (var lines in randomLines)
+			{
+				var fiveLines = randomLines.Take(5);
+				var singleParagraph = string.Join(" ", fiveLines);
+
+				allParagraphs.Add(singleParagraph);
+			}
+
+			var paragraphIpsum = string.Join("", allParagraphs);
+
+			return paragraphIpsum;
+		}
 
         private List<string> GetLyricsFromMusixmatch(List<Track> randomTracksFromSelectedArtist)
         {

@@ -6,13 +6,6 @@
     $scope.decadeSelectorClicked = true;
     $scope.genreSelectorClicked = false;
     $scope.artistSelectorClicked = false;
-    $scope.encodedGenre = [];
-
-    $scope.encodeGenreUrl = () => {
-        var uri = $scope.selectedGenre;
-        var result = encodeURIComponent(uri);
-        $scope.encodedGenre = result;
-    };
 
     $scope.copyIpsum = () => {
         ngClipboard.toClipboard($scope.ipsum);
@@ -58,7 +51,7 @@
     };
 
     $scope.getGenreIpsum = () => {
-        $http.get("/api/lyric/genre/" + $scope.encodedGenre)
+        $http.get("/api/lyric/genre/" + encodeURIComponent($scope.selectedGenre))
             .then((result) => {
                 $scope.ipsum = result.data;
             }).catch((error) => {
@@ -74,9 +67,5 @@
                 console.log("getArtistIpsum error", error);
             });
     };
-
-
-
-
 
 }]);

@@ -115,9 +115,11 @@ p {
     .title-text {
         width: 85%;
     }
+
     .created-ipsum {
         width: 85%;
     }
+}
 
 @media (max-width: 443px) {
     .artist-selector,
@@ -128,6 +130,4 @@ p {
         align-items: center;
         justify-content: center;
     }
-}
-
 }

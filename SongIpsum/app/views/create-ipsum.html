@@ -1,13 +1,17 @@
 ﻿<div id="ipsum-container row">
 
     <header class="aligner">
-        <img class="primary-logo img-responsive aligner-item" src="/images/thesongipsum_logo.png">
+        <img class="primary-logo img-responsive" src="/images/thesongipsum_logo.png">
     </header>
 
-    <h1>A custom Lorem Ipsum generator<br>for the lyric enthusiast.</h1>
+    <div class="title-text">
+        <h1>A custom Lorem Ipsum generator for the lyric enthusiast.</h1>
+        <h4>Make your projects sing with auto-generated text from the raddest songs ever created.</h4>
+    </div>
+
 
     <div class="center">
-        <h4>Make your projects sing with auto-generated text<br>from the raddest songs ever created.</h4>
+
         <a class="btn btn-lg large-btn" ng-click="openDecadeSelector()">DECADE</a>
         <a class="btn btn-lg large-btn" ng-click="openGenreSelector()">GENRE</a>
         <a class="btn btn-lg large-btn" ng-click="openArtistSelector()">ARTIST</a>
@@ -30,10 +34,9 @@
         <div class="aligner">
             <div class="created-ipsum aligner-item" ng-show="ipsum.length">
                 <p>{{ipsum}}</p>
-                <a class="btn btn-lg" ng-click="copyIpsum()"><i class="fa fa-clipboard" aria-hidden="true"></i>  COPY IPSUM</a>
+                <a class="btn btn-lg copy-btn" ng-click="copyIpsum()"><i class="fa fa-clipboard" aria-hidden="true"></i>  COPY IPSUM</a>
             </div>
         </div>
+
     </div>
-
-
 </div>

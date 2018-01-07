@@ -56,6 +56,12 @@ a, a:hover, .btn:hover, .large-btn:hover {
     padding-top: 30px;
 }
 
+.title-text {
+    width: 625px;
+    text-align: center;
+    margin: 0 auto;
+}
+
 h1 {
     font-family: 'Scope One', serif;
     letter-spacing: 0.2rem;
@@ -87,3 +93,41 @@ p {
     margin: 10px;
 }
 
+.copy-btn {
+    margin-bottom: 50px;
+}
+
+@media (max-width: 991px) {
+    .primary-logo {
+        width: 75%;
+    }
+}
+
+@media (max-width: 666px) {
+    h1 {
+        font-size: 2.75rem;
+    }
+
+    h4 {
+        font-size: 1.5rem;
+    }
+
+    .title-text {
+        width: 85%;
+    }
+    .created-ipsum {
+        width: 85%;
+    }
+
+@media (max-width: 443px) {
+    .artist-selector,
+    .genre-selector,
+    .decade-selector {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+}

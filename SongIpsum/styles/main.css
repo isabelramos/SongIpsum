@@ -1,0 +1,133 @@
+﻿input:focus,
+select:focus,
+textarea:focus,
+a:focus,
+a:active,
+.btn:focus,
+.btn:active,
+.no-border-btn:focus,
+.no-border-btn:active {
+    outline: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+body {
+    background-image: url(/images/songipsum_bg.jpg);
+    background-size: cover;
+    height: 100vh;
+    background-color: #363a49;
+    font-family: 'Scope One', serif;
+    color: #eef7fd;
+}
+
+select, .input-field {
+    color: #363a49;
+    width: 200px;
+    margin: 10px;
+    padding: 5px;
+}
+
+.input-field:focus, select:focus, textarea:focus {
+    color: #363a49;
+}
+
+a, a:hover, .btn:hover, .large-btn:hover {
+    color: #eef7fd;
+}
+
+.primary-logo {
+    width: 65%;
+    margin-top: 8%;
+}
+
+.aligner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.center {
+    text-align: center;
+}
+
+.created-ipsum {
+    width: 600px;
+    padding-top: 30px;
+}
+
+.title-text {
+    width: 625px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+h1 {
+    font-family: 'Scope One', serif;
+    letter-spacing: 0.2rem;
+    text-align: center;
+}
+
+h4 {
+    font-family: 'Scope One', serif;
+    letter-spacing: 0.2rem;
+    line-height: 2.25rem;
+}
+
+p {
+    font-size: 1.5rem;
+    line-height: 2.25rem;
+    letter-spacing: 0.1rem;
+}
+
+.btn {
+     background-color: #886a29;
+}
+
+.btn:hover {
+    opacity: 0.8;
+}
+
+.large-btn {
+    width: 200px;
+    margin: 10px;
+}
+
+.copy-btn {
+    margin-bottom: 50px;
+}
+
+@media (max-width: 991px) {
+    .primary-logo {
+        width: 75%;
+    }
+}
+
+@media (max-width: 666px) {
+    h1 {
+        font-size: 2.75rem;
+    }
+
+    h4 {
+        font-size: 1.5rem;
+    }
+
+    .title-text {
+        width: 85%;
+    }
+
+    .created-ipsum {
+        width: 85%;
+    }
+}
+
+@media (max-width: 443px) {
+    .artist-selector,
+    .genre-selector,
+    .decade-selector {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+}

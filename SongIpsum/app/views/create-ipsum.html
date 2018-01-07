@@ -1,0 +1,42 @@
+﻿<div id="ipsum-container row">
+
+    <header class="aligner">
+        <img class="primary-logo img-responsive" src="/images/thesongipsum_logo.png">
+    </header>
+
+    <div class="title-text">
+        <h1>A custom Lorem Ipsum generator for the lyric enthusiast.</h1>
+        <h4>Make your projects sing with auto-generated text from the raddest songs ever created.</h4>
+    </div>
+
+
+    <div class="center">
+
+        <a class="btn btn-lg large-btn" ng-click="openDecadeSelector()">DECADE</a>
+        <a class="btn btn-lg large-btn" ng-click="openGenreSelector()">GENRE</a>
+        <a class="btn btn-lg large-btn" ng-click="openArtistSelector()">ARTIST</a>
+
+        <div class="decade-selector" ng-show="decadeSelectorClicked">
+            <select id="decade-dropdown" type="number" ng-model="selectedDecade" ng-options="x for x in availableDecades"></select>
+            <a class="btn" ng-click="searchDecadeButton()">CREATE IPSUM</a>
+        </div>
+
+        <div class="genre-selector" ng-show="genreSelectorClicked">
+            <select id="genre-dropdown" type="number" ng-model="selectedGenre" ng-options="y for y in availableGenres"></select>
+            <a class="btn" ng-click="searchGenreButton()">CREATE IPSUM</a>
+        </div>
+
+        <div class="artist-selector" ng-show="artistSelectorClicked">
+            <input class="input-field" type="text" placeholder="Search Artist" ng-model="artistSearchInput">
+            <a class="btn" ng-click="searchArtistButton()">CREATE IPSUM</a>
+        </div>
+
+        <div class="aligner">
+            <div class="created-ipsum aligner-item" ng-show="ipsum.length">
+                <p>{{ipsum}}</p>
+                <a class="btn btn-lg copy-btn" ng-click="copyIpsum()"><i class="fa fa-clipboard" aria-hidden="true"></i>  COPY IPSUM</a>
+            </div>
+        </div>
+
+    </div>
+</div>
